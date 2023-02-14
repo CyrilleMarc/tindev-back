@@ -23,11 +23,11 @@ mongoose
     console.log(error.message);
   });
 
-app.get("/test", (req, res) => {
+app.get("https://tindev.herokuapp.com/test", (req, res) => {
   res.json("server ok");
 });
 
-app.post("/register", async (req, res) => {
+app.post("https://tindev.herokuapp.com/register", async (req, res) => {
   const { email, password } = req.body;
   try {
     const userDoc = await User.create({
