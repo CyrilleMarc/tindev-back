@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const User = require("./models/User");
 const cors = require("cors");
+var port = process.env.PORT || 3002;
 require("dotenv").config();
 
 app.use(cors({ credentials: true, origin: process.env.REACT_APP_PORT }));
@@ -30,4 +31,4 @@ app.post("/register", async (req, res) => {
   }
 });
 
-app.listen(5000);
+app.listen(port);
