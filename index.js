@@ -11,7 +11,17 @@ app.use(express.json());
 // app.use(cookieParser());
 
 mongoose.set("strictQuery", true);
-mongoose.connect(process.env.REACT_APP_MONGO_URL);
+mongoose
+  .connect(process.env.REACT_APP_MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("db connectée");
+  })
+  .catch((error) => {
+    console.log(error.message);
+  });
 
 app.get("/test", (req, res) => {
   res.json("server ok");
